@@ -1,16 +1,125 @@
-# React + Vite
+# NoteTaking App 📝
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and elegant **Note Taking Application** built using **React** and **Tailwind CSS**, designed to let users **create, view, search, update, and delete notes** — all stored locally in the browser using **Local Storage**.  
+The app also features **secure authentication** using **Auth0**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+- 🔐 **Authentication** via **Auth0** (Google login supported)
+- 🧠 **Persistent notes** using **Local Storage**
+- 📝 **CRUD Operations**: Create, Read, Update, and Delete notes
+- 🔍 **Search functionality** to quickly find notes
+- 🎨 **Responsive UI** styled with Tailwind CSS
+- ⚡ **Deployed on Vercel** for fast and reliable hosting
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🧰 Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Frontend:** React + Vite  
+- **Styling:** Tailwind CSS  
+- **Authentication:** Auth0  
+- **Storage:** Local Storage (Browser)  
+- **Deployment:** Vercel
+
+---
+
+## 📦 Folder Structure
+
+```
+src/
+│
+├── auth/
+│   ├── AuthProvider.jsx     # Provides Auth0 authentication context
+│   └── useAuth.js           # Custom hook for accessing auth state
+│
+├── components/
+│   ├── NoteForm.jsx         # Form for creating and editing notes
+│   ├── NoteList.jsx         # Displays list of notes with edit/delete options
+│   ├── SearchBar.jsx        # Allows searching notes
+│   └── Navbar.jsx           # Navigation bar with login/logout controls
+│
+├── pages/
+│   ├── Home.jsx             # Main note-taking interface
+│   └── Login.jsx            # Auth0 login redirect handler
+│
+├── App.jsx                  # Main app component
+└── main.jsx                 # Entry point
+```
+
+---
+
+## 🧭 How It Works
+
+1. Users authenticate through **Auth0** (Google Login).  
+2. Once logged in, they are redirected to the main app page.  
+3. Notes are created, updated, deleted, or searched directly in the UI.  
+4. Data is saved in **Local Storage**, ensuring persistence even after page reloads.
+
+---
+
+## ⚙️ Setup Instructions
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/yourusername/notetaking.git
+cd notetaking
+```
+
+### 2. Install Dependencies
+```bash
+npm install
+```
+
+### 3. Add Auth0 Configuration
+Create a `.env` file in the root directory and add your Auth0 credentials:
+```bash
+VITE_AUTH0_DOMAIN=your-domain.auth0.com
+VITE_AUTH0_CLIENT_ID=your-client-id
+VITE_AUTH0_CALLBACK_URL=http://localhost:5173
+```
+
+### 4. Run the Project Locally
+```bash
+npm run dev
+```
+
+### 5. Build for Production
+```bash
+npm run build
+```
+
+### 6. Deploy on Vercel
+Simply connect your GitHub repo to **Vercel** and deploy.  
+Make sure to update your **Auth0 Allowed Callback URLs** and **Logout URLs** with your deployed domain (e.g. `https://notetaking-swart.vercel.app`).
+
+---
+
+## 🔒 Auth0 Settings
+
+Ensure these are added under **Application Settings → Allowed URLs**:
+
+| Setting | Local URL | Deployed URL |
+|----------|------------|---------------|
+| **Callback URL** | `http://localhost:5173` | `https://notetaking-swart.vercel.app` |
+| **Logout URL** | `http://localhost:5173` | `https://notetaking-swart.vercel.app` |
+| **Allowed Web Origins** | `http://localhost:5173` | `https://notetaking-swart.vercel.app` |
+
+---
+
+## ✨ Future Enhancements
+
+- 🗂️ Add folder organization for notes  
+- ☁️ Optionally integrate with backend (Node.js + MongoDB)  
+- 🕵️ Add dark mode support  
+- 📱 Improve mobile UX
+
+---
+
+## 🧑‍💻 Author
+
+**Anant Shukla**  
+Built with ❤️ using React, Tailwind CSS, and Auth0.  
+Deployed on **Vercel**.
